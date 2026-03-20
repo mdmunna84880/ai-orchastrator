@@ -2,14 +2,14 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 
-import uploadRoute from "./routes/upload.js";
+import uploadRoute from "./routes/index.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/upload", uploadRoute);
+app.use("/api", uploadRoute);
 
 // Backend check up routes
 app.get("/", (req, res) => {
