@@ -13,7 +13,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // Upload file and extract data
-router.post("/", upload.single("file"), async (req, res) => {
+router.post("/upload", upload.single("file"), async (req, res) => {
   try {
      if (!req.file) {
       return res.status(400).json({
