@@ -11,7 +11,8 @@ export async function extractWithGemini(text, question) {
                     - Extract ONLY relevant info based on the question
                     - Return 5-8 key-value pairs
                     - No explanation
-                    - Output strictly valid JSON
+                    - Output strictly valid JSON,
+                    - Don't generate with field name 'status'
 
                     Schema:
                     {
@@ -26,7 +27,7 @@ export async function extractWithGemini(text, question) {
                     ${text}
                     `;
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-flash-lite-preview",
+    model: "gemini-2.5-flash",
     contents: prompt,
   });
 
